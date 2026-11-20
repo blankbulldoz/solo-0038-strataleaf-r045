@@ -31,7 +31,7 @@ with Database("strataleaf.db") as db:
 
 `catalog schema commit snapshot query index feed backup replica compact expire aggregate patch inspect transfer`
 
-每个示例约一秒以内，不需要联网。它们是生产 API 的有限工作流演示；自动化测试仍为 **deferred**，仓库不含测试套件，也不声明测试命令。`examples.observations` 另外提供写锁竞争与保留水位的可复现观测。
+每个示例约一秒以内，不需要联网。它们是生产 API 的有限工作流演示；自动化测试仍为 **deferred**，仓库不含测试套件，也不声明测试命令。`examples.observations` 另外提供写锁竞争与保留水位的可复现观测；`python3 -m examples.replica_projection` 用真实导出包重放副本分段追赶、目录推进与索引投影的完整时间线。
 
 ## 语义边界
 

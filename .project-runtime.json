@@ -67,6 +67,10 @@
     {
       "workflow_id": "transfer",
       "command": "python3 -m examples.workflows transfer"
+    },
+    {
+      "workflow_id": "replica_projection",
+      "command": "python3 -m examples.replica_projection"
     }
   ]
 }

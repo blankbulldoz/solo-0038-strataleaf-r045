@@ -6,4 +6,6 @@ diagnostics.inspect(deep=True) 检查 SQLite 完整性、外键、提交连续�
 
 examples.observations 的 contention 会让独立连接暂持 IMMEDIATE 锁，记录第二句柄的 busy 超时及释放后的成功；retention_pressure 记录读保留点和消费者分别阻止水位推进的现象。它们用独立临时文件，不接触生产路径。观察包含真实修订和异常，适合复核运行边界。
 
+examples.replica_projection 用真实主库导出包重放副本追赶：两笔分段包与一次性包、目录仅新增索引、同修订旧包重放、目录删除索引与仅模式演进、以及大存量文档伴随少量改动。它以原始文档修订、完整提交流、index_defs/index_values 和每条等值查询的实际访问路径逐阶段比对，而不是只比较 head 或最终指纹；运行命令见 `.project-runtime.json`。
+
 关闭所有调用方句柄再移动数据目录；不支持共享网络盘或多主写入。在空间紧张时先核实 pin/消费者，推进已完成的确认后再回收；回收不自动缩小文件，物理容量由 SQLite 空闲页复用。到期清理只在显式调用时执行，不能把墙钟到期等同于读视图变动。
